@@ -1,9 +1,12 @@
-package db.entity;
+package com.example.demo32.db.entity;
+
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 
 @Entity
 public class ContoBancario {
@@ -13,6 +16,11 @@ public class ContoBancario {
     int id;
 
     double saldo;
+
+    
+
+    public ContoBancario() {
+    }
 
     public ContoBancario(double saldo){
         this.saldo = saldo;
@@ -34,19 +42,28 @@ public class ContoBancario {
         this.saldo = saldo;
     }
 
-    public void deposita(double importo) throws Exception {
+    public void deposita(double importo){
+        try{
         if (importo <= 0) {
-            throw new Exception("L'importo da depositare deve essere positivo");
+          System.out.println("L'importo da depositare deve essere positivo");
         }
         this.saldo += importo;
+        }catch(Exception e){
+            e.getMessage();
+        }
     }
 
-    public void preleva(double importo) throws Exception {
+    public void preleva(double importo)  {
+        try{
         if( importo > saldo ){
-            throw new Exception("Non hai abbastanza soldi");
+          System.out.println("Non hai sti soldiii!!");
         }
         this.saldo -= importo;
+    }catch(Exception e){
+        e.getMessage();
     }
+}
+        
 
     @Override
     public String toString() {

@@ -1,12 +1,13 @@
-package db.service;
+package com.example.demo32.db.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import db.entity.ContoBancario;
-import db.repo.ContoRepo;
+import com.example.demo32.db.entity.ContoBancario;
+import com.example.demo32.db.repo.ContoRepo;
+
 
 @Service
 public class ContoService {
@@ -16,7 +17,7 @@ public class ContoService {
 
 
     //Create - Update
-    public ContoBancario createConto(ContoBancario c){
+    public ContoBancario saveConto(ContoBancario c){
         return repo.save(c);
     }
 
@@ -31,8 +32,8 @@ public class ContoService {
         return repo.findAll();
     }
 
-    public void deleteConto(ContoBancario c){
-        repo.delete(c);
+    public void deleteConto(int id){
+        repo.deleteById(id);
     }
 
    
