@@ -1,6 +1,8 @@
 package com.example.demo32;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -45,7 +47,13 @@ public class Demo32Application implements CommandLineRunner{
 			contoService.getAllConti().forEach(System.out::println);
 			System.out.println(" ----------------------------------------");
 			System.out.println(" ---------Conto per ID ----------------");
-			System.out.println(contoService.getCOntoById(1));
+			//System.out.println(contoService.getCOntoById(1));
+			Optional<ContoBancario> optConto = Optional.of(contoService.getCOntoById(1));
+			if(optConto.isPresent()) {
+				System.out.println(optConto.get());
+				}else{
+					System.out.println("Conto non trovato");
+				}
 			System.out.println(" ----------------------------------------");
 			System.out.println(" -------- Cencella per id ---------------");
 			contoService.deleteConto(1);
