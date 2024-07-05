@@ -28,8 +28,8 @@ public class Demo32Application implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		System.out.println("Hello World");
 
-			ContoBancario c1 = new ContoBancario(0);
-			ContoBancario c2 = new ContoBancario(1000.00);
+			ContoBancario c1 = new ContoBancario("Luca",0);
+			ContoBancario c2 = new ContoBancario("Gino",1000.00);
 
 			c1.deposita(1000.00);
 			System.out.println(c1);

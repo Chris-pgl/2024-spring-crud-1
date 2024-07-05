@@ -16,13 +16,15 @@ public class ContoBancario {
     int id;
 
     double saldo;
+    String name;
 
     
 
     public ContoBancario() {
     }
 
-    public ContoBancario(double saldo){
+    public ContoBancario(String name, double saldo){
+        this.name = name;
         this.saldo = saldo;
     }
 
@@ -67,7 +69,7 @@ public class ContoBancario {
 
     @Override
     public String toString() {
-        return "ContoBancario [id=" + id + ", saldo=" + saldo + "]";
+        return "ContoBancario [id=" + id +", nome="+ name +", saldo=" + saldo + "]";
     }
 
     
